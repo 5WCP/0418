@@ -84,27 +84,21 @@ let min=1;
 let max=100;    
 button.addEventListener("click",function(){
     let answer = input.value;
-    // if(answer > max || answer < min) {
-    //     title.innerText = "超出猜測範圍 請猜範圍內的數字 : " + min + "~" + max;
-    //     input.value = null;
-    // }
-    if(answer == target) {
-        title.innerText = "答對了!";
-        input.value = null;
-        return;
-    } else if(answer > target && (min <= answer && answer <= max)) {
-        max = answer;
-        title.innerText = "數字過大 範圍 : " + min + "~" + max;
-        input.value = null;
-        return;
-    } else if(answer < target && (min <= answer && answer <= max)) {
-        min = answer;
-        title.innerText = "數字過小 範圍 : " + min + "~" + max;
-        input.value = null;
-        return;
-    } else {
+    if(answer > max || answer < min) {
         title.innerText = "超出猜測範圍 請猜範圍內的數字 : " + min + "~" + max;
         input.value = null;
         return;
+    }
+    if(answer == target) {
+        title.innerText = "答對了!";
+        input.value = null;
+    } else if(answer > target) {
+        max = answer;
+        title.innerText = "數字過大 範圍 : " + min + "~" + max;
+        input.value = null;
+    } else if(answer < target) {
+        min = answer;
+        title.innerText = "數字過小 範圍 : " + min + "~" + max;
+        input.value = null;
     }
 });
