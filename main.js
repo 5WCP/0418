@@ -79,17 +79,19 @@ console.log(button);
     // input.value = null;
 // });
 
-let target = 66;
+let target = Math.floor(random()*100 +1);
 let min=1;
 let max=100;    
 button.addEventListener("click",function(){
-    let answer = input.value;
+    let answer = +input.value;
     if(answer > max || answer < min) {
+        // alert() 彈出訊息視窗
         title.innerText = "超出猜測範圍 請猜範圍內的數字 : " + min + "~" + max;
         input.value = null;
         return;
     }
     if(answer == target) {
+        // numArea.innerHTML
         title.innerText = "答對了!";
         input.value = null;
     } else if(answer > target) {
